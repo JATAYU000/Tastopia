@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tastopia/constants/colors.dart';
+import 'package:tastopia/widgets/authbutton.dart';
 
 import 'auth_screen.dart';
 
@@ -77,27 +78,15 @@ class _GetStartedPageState extends State<GetStartedPage> {
             Positioned(
               top: screenHeight * 0.83,
               left: screenWidth * 0.12,
-              child: SizedBox(
-                width: screenWidth * 0.74,
-                height: screenHeight * 0.064,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(_createRoute());
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(ColorConstants.primary),
-                    //padding: const EdgeInsets.fromLTRB(100, 16, 100, 16),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                  ),
-                  child: Text("Get Started",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: GoogleFonts.sora().fontFamily,
-                      fontSize: screenHeight * 0.021,
-                    ),
-                  ),
-                ),
-              ),
+              child: AuthButton(
+                  screenWidth * 0.74,
+                  screenHeight * 0.064,
+                  screenHeight * 0.021,
+                  ColorConstants.primary,
+                  "Get Started",
+                  0xFFffffff,
+                  screenHeight * 0.021,
+                  () {Navigator.of(context).pushReplacement(_createRoute());})
             ),
           ],
         ),

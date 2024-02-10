@@ -5,7 +5,6 @@ import 'package:tastopia/pages/get_started.dart';
 import 'models/single_recipe.dart';
 import 'pages/home_page.dart';
 
-
 void main() {
   //final singleRecipe = singleRecipeFromJson('');
   runApp(const ProviderScope(child: MyApp()));

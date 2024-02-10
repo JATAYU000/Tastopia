@@ -15,7 +15,7 @@ class AuthenticationPage extends StatelessWidget {
             height: _size.height,
             child: Container(
               color: Color(ColorConstants.primary),
-              child: loginform(),
+              //child: loginform(),
             )
             
             ),

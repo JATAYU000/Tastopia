@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tastopia/pages/get_started.dart';
 
+import 'models/single_recipe.dart';
 import 'pages/home_page.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  //final singleRecipe = singleRecipeFromJson('');
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const GetStartedPage(),
     );
   }
 }

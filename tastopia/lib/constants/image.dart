@@ -1,0 +1,3 @@
+class ImageConstants{
+  String GetStarted = "";
+}

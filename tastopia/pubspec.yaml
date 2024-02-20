@@ -41,6 +41,8 @@ dependencies:
   flutter_riverpod: ^2.4.10
   riverpod_annotation: ^2.3.4
 
+  flutter_any_logo: ^1.1.1
+
 dev_dependencies:
   build_runner:
   custom_lint:

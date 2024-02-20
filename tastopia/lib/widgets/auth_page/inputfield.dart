@@ -22,12 +22,12 @@ return Container(
                 obscureText: isPass,
                 maxLength: InpLength,
                 textAlignVertical: TextAlignVertical.center,
-                style: GoogleFonts.sora(color: Colors.black.withOpacity(0.7),fontSize: screenHeight*0.017,fontWeight: FontWeight.bold),
+                style: GoogleFonts.sora(color: Colors.black.withOpacity(0.7),fontSize: screenHeight*0.018,fontWeight: FontWeight.bold),
                   decoration: InputDecoration(
                     counter: Offstage(),
                     hintText: HinText,
                     border: InputBorder.none,
-                    hintStyle: GoogleFonts.sora(color: Color(0xFF616060),fontSize: screenHeight*0.017,fontWeight: FontWeight.bold),
+                    hintStyle: GoogleFonts.sora(color: Color(0xFF616060),fontSize: screenHeight*0.0175,fontWeight: FontWeight.bold),
                     contentPadding: EdgeInsets.only(
                        left: 15, top: screenHeight*0.025),
                     isDense: true

@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tastopia/pages/get_started.dart';
 
 import 'models/single_recipe.dart';
 import 'pages/home_page.dart';
 
-void main() {
-  //final singleRecipe = singleRecipeFromJson('');
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(const ProviderScope(child: MyApp()));
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

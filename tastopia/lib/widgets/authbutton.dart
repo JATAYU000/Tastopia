@@ -27,6 +27,7 @@ SizedBox AuthButton(
           color: Color(textColorHex),
           fontFamily: GoogleFonts.sora().fontFamily,
           fontSize: fontSize,
+          fontWeight: FontWeight.bold,
         ),
       ),
     ),

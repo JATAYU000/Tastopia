@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_any_logo/flutter_logo.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tastopia/constants/colors.dart';
 import 'package:tastopia/widgets/auth_page/inputfield.dart';
+import 'package:tastopia/widgets/auth_page/social_form.dart';
+import 'package:tastopia/widgets/authbutton.dart';
 
 class LoginForm extends StatelessWidget {
   final double screenHeight,screenWidth;
@@ -16,7 +19,7 @@ class LoginForm extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Spacer(),
+            // SizedBox(height: screenHeight*0.01,),
             InputFieldWidget(screenHeight, screenWidth, "USERNAME",0xFFd9d9d9,20,false),
             SizedBox(height: screenHeight*0.045,),
             InputFieldWidget(screenHeight, screenWidth, "PASSWORD",0xFFd9d9d9,20,true),
@@ -24,11 +27,23 @@ class LoginForm extends StatelessWidget {
             TextButton(
               onPressed: () {},
               child: Text(
-                "Forgot Password?",
-                style: GoogleFonts.inter(color: Colors.black.withOpacity(0.7),fontSize: screenHeight*0.015),
+                "Forgot your Password?",
+                style: GoogleFonts.inter(color: Colors.black.withOpacity(0.7),fontSize: screenHeight*0.015,fontWeight: FontWeight.w600),
               ),
             ),
-            Spacer(flex: 2),
+            SizedBox(height: screenHeight*0.04,),
+            AuthButton(
+              screenWidth*0.64,
+              screenHeight*0.06,
+              15,
+              0xFFfe8744,
+              "LOG IN",
+              0xFFffffff,
+              17,
+              () {print("loged in"); }
+                  ),
+            SizedBox(height: screenHeight*0.065,),
+            
               
             
           ],

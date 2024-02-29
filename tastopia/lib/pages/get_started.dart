@@ -86,7 +86,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                   "Get Started",
                   0xFFffffff,
                   screenHeight * 0.021,
-                  () {Navigator.of(context).pushReplacement(_createRoute());})
+                  () { Navigator.of(context).push(_createRoute());})
             ),
           ],
         ),
@@ -97,6 +97,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
 
 Route _createRoute() {
   return PageRouteBuilder(
+    transitionDuration: Duration(milliseconds: 1000),
     pageBuilder: (context, animation, secondaryAnimation) => const AuthenticationPage(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       const begin = Offset(0.0, 1.0);

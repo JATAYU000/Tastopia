@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_any_logo/flutter_logo.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tastopia/constants/colors.dart';
+import 'package:tastopia/pages/home_page.dart';
 import 'package:tastopia/widgets/auth_page/inputfield.dart';
-import 'package:tastopia/widgets/auth_page/social_form.dart';
 import 'package:tastopia/widgets/authbutton.dart';
 
 class LoginForm extends StatelessWidget {
@@ -28,7 +27,7 @@ class LoginForm extends StatelessWidget {
               onPressed: () {},
               child: Text(
                 "Forgot your Password?",
-                style: GoogleFonts.inter(color: Colors.black.withOpacity(0.7),fontSize: screenHeight*0.015,fontWeight: FontWeight.w600),
+                style: GoogleFonts.inter(color: Color(ColorConstants.gray),fontSize: screenHeight*0.015,fontWeight: FontWeight.w600),
               ),
             ),
             SizedBox(height: screenHeight*0.04,),
@@ -37,10 +36,10 @@ class LoginForm extends StatelessWidget {
               screenHeight*0.06,
               15,
               0xFFfe8744,
-              "LOG IN",
+              "",
               0xFFffffff,
               17,
-              () {print("loged in"); }
+              () {Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));  }
                   ),
             SizedBox(height: screenHeight*0.065,),
             

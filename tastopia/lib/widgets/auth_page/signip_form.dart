@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:tastopia/pages/home_page.dart';
 import 'package:tastopia/widgets/auth_page/inputfield.dart';
 import 'package:tastopia/widgets/authbutton.dart';
 
@@ -31,12 +31,13 @@ class SignupForm extends StatelessWidget {
               screenHeight*0.06,
               15,
               0xFFffffff,
-              "SIGN UP",
+              "",
               0xFFfe8744,
               17,
-              () {print("Signed in"); }
+              () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage())); }
                   ),
             SizedBox(height: screenHeight*0.065,),
+            
             
               
             

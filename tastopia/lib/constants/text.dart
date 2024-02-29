@@ -1,3 +1,0 @@
-//text
-class TextConstants{
-}

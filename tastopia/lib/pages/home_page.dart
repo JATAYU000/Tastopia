@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:tastopia/constants/colors.dart';
+import 'package:tastopia/widgets/home_page/TabButton.dart';
+import 'package:tastopia/widgets/home_page/appbar_widget.dart';
+import 'package:tastopia/widgets/home_page/drawer_widget.dart';
+import 'package:tastopia/widgets/home_page/search_input.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,96 +13,52 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  bool DailyButton = true;
+  bool FavButton = false;
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-        appBar: buildAppBar(),
-        drawer: Drawer(
-          child: ListView(
-            children: [
-
-            ],
-          ),
-        ),
-        body: Column(
+      drawer: DrawerWidget(),
+      
+        appBar: BuildAppBar(screenHeight,screenWidth),
+        body: Stack(
           children: [
-            Container(
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search here...',
-                  prefixIcon: Icon(Icons.search),
-                  suffixIcon: Container(
-                    width: 100,
-                    child: IntrinsicHeight(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          VerticalDivider(
-                            indent: 10,
-                            endIndent: 10,
-                            thickness: 1,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Icon(Icons.arrow_drop_down_circle_outlined),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  filled: true,
-                  labelStyle: TextStyle(
-                    color: Colors.black,
-                  ),
-                  fillColor: Colors.white,
-                  contentPadding: EdgeInsets.all(15),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide.none,
-                  )
-                ),
-              ),
-              margin: EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 20,
-                    spreadRadius: 0.0,
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-    );
-  }
+            Positioned(
+              top: -screenHeight*0.002,
+              left:0,
+              child:Container(
+                width: screenWidth,
+                height: screenHeight*0.418,
+                color: Color(ColorConstants.primary),
+              )
+            ),
 
-  AppBar buildAppBar() {
-    return AppBar(
-        title: const Text('Tastopia'),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        iconTheme: IconThemeData(
-          color: Colors.orange
-        ),
-        titleTextStyle: TextStyle(
-          fontFamily: GoogleFonts.poppins().fontFamily,
-          color: Colors.black,
-          fontSize: 30,
-        ),
-        actions: [
-          Container(
-            margin: EdgeInsets.only(right: 10),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Icon(
-                  Icons.favorite_border,
+            Positioned(
+              left: screenWidth*0.085,
+              top: screenHeight*0.04,
+              child: Center(
+                child: SearchBarWidget()
               ),
             ),
-          ),
-        ],
-      );
+
+            Positioned(
+              top: screenHeight*0.15,
+              left: screenWidth*0.09,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TabButton(screenHeight*0.0428, screenWidth*0.333, "Daily Recipes", () { }, 0xFFFFFF, ColorConstants.primaryDark),
+                  SizedBox(width: screenWidth*0.1,),
+                  TabButton(screenHeight*0.0428, screenWidth*0.333, "Favourites", () { }, 0xFFFFFF, ColorConstants.primaryDark)
+                ]
+              ))
+
+                ],
+            ));
+  
   }
+
 }

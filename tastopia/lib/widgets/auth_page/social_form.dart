@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tastopia/constants/colors.dart';
 
 class SocialButton extends StatelessWidget {
   final double screenHeight,screenWidth;
@@ -13,14 +14,14 @@ class SocialButton extends StatelessWidget {
               children: [
                 Expanded(
                   child: Divider(
-                    color: Colors.black.withOpacity(0.7),
+                    color: Color(ColorConstants.gray),
                     thickness: 1,
                   ),
                 ),
-                Container(padding: new EdgeInsets.all(10.0),child: Text("OR", style: GoogleFonts.sora(color: Colors.black.withOpacity(0.7),fontSize: 13,fontWeight: FontWeight.w500),)),
+                Container(padding: new EdgeInsets.all(10.0),child: Text("OR", style: GoogleFonts.sora(color: Color(ColorConstants.gray),fontSize: 13,fontWeight: FontWeight.w500),)),
                 Expanded(
                   child: Divider(
-                    color: Colors.black.withOpacity(0.7),
+                    color: Color(ColorConstants.gray),
                    thickness: 1,
                   ),
                 ),

@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tastopia/constants/colors.dart';
 
 SizedBox TabButton (
   double Height,
@@ -25,8 +24,7 @@ SizedBox TabButton (
         style: TextStyle(
           color: Color(0xFFffffff),
           fontFamily: GoogleFonts.sora().fontFamily,
-          fontSize: Height*0.31,
-          fontWeight: FontWeight.bold,
+          fontSize: Height*0.35,
         ),
       ),
     ),

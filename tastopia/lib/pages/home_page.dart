@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 import 'package:tastopia/constants/colors.dart';
 import 'package:tastopia/models/api/random_recipe.dart';
 import 'package:tastopia/models/single_recipe.dart';
@@ -6,6 +8,7 @@ import 'package:tastopia/widgets/home_page/TabButton.dart';
 import 'package:tastopia/widgets/home_page/appbar_widget.dart';
 import 'package:tastopia/widgets/home_page/drawer_widget.dart';
 import 'package:tastopia/widgets/home_page/search_input.dart';
+import 'package:tastopia/widgets/home_page/swipeable_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,6 +26,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    setDaily();setDaily();setDaily();
     // TODO: implement initState
     super.initState();
   }
@@ -41,58 +45,62 @@ class _HomePageState extends State<HomePage> {
       drawer: DrawerWidget(),
       
         appBar: BuildAppBar(screenHeight,screenWidth),
-        body: Stack(
-          children: [
-            Positioned(
-              top: -screenHeight*0.002,
-              left:0,
-              child:Container(
-                width: screenWidth,
-                height: screenHeight*0.418,
-                color: Color(ColorConstants.primary),
-              )
+        body: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(ColorConstants.primary),
+                  Color(ColorConstants.primary),
+                  Colors.white,
+                  Colors.white
+                      ],
+              stops: [0.0, 0.6, 0.6, 1.0],
+              end: Alignment.bottomCenter,
+              begin: Alignment.topCenter,
             ),
-
-            Positioned(
-              left: screenWidth*0.085,
-              top: screenHeight*0.04,
-              child: Center(
-                child: SearchBarWidget()
-              ),
-            ),
-
-            Positioned(
-              top: screenHeight*0.15,
-              left: screenWidth*0.085,
-              child: Container(
-                width: screenWidth*0.831,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TabButton(screenHeight*0.0438, screenWidth*0.333, "Daily Recipes", () { 
-                      setDaily();
-                    setState(() {
-                      DailyButton = !DailyButton;
-                      FavButton = !FavButton;
-                    });},  0xFFFFFF,DailyButton? ColorConstants.primaryDark : ColorConstants.primary),
-                    SizedBox(width: screenWidth*0.124,),
-                    TabButton(screenHeight*0.0438, screenWidth*0.333, "Favourites", () {setState(() {
-                      DailyButton = !DailyButton;
-                      FavButton = !FavButton;
-                    }); }, 0xFFFFFF, FavButton? ColorConstants.primaryDark : ColorConstants.primary)
-                  ]
+          ),
+            child: Column(
+              children: [
+              
+            
+                Container(
+                  margin: EdgeInsets.only(top:20.0,bottom: 20.0),
+                  child: Center(
+                    child: SearchBarWidget()
+                  ),
                 ),
-              )),
-
-            Positioned(
-              top: screenHeight*0.2,
-              child: Container(
-
-            ))
-
-                ],
-            ));
-  
+            
+                Center(
+                  child: Container(
+                    width: screenWidth*0.721,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        TabButton(screenHeight*0.0438, screenWidth*0.333, "Daily Recipes", () { 
+                          setDaily();
+                        setState(() {
+                          DailyButton = !DailyButton;
+                          FavButton = !FavButton;
+                        });},  0xFFFFFF,DailyButton? ColorConstants.primaryDark : ColorConstants.primary),
+                        // SizedBox(width: screenWidth*0.124,),
+                        TabButton(screenHeight*0.0438, screenWidth*0.333, "Favourites", () {setState(() {
+                          DailyButton = !DailyButton;
+                          FavButton = !FavButton;
+                        }); }, 0xFFFFFF, FavButton? ColorConstants.primaryDark : ColorConstants.primary)
+                      ]
+                    ),
+                  )),
+            
+                Container(
+                  margin: EdgeInsets.only(top:20.0,bottom:20.0),
+                  child: SwipeableWidget(dailyMeals: Daily)    
+                ),
+                ]
+              ),
+          ),
+        )
+        );
   }
 
 }

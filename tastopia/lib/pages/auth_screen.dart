@@ -15,6 +15,9 @@ class AuthenticationPage extends StatefulWidget {
 class _AuthenticationPageState extends State<AuthenticationPage> with SingleTickerProviderStateMixin {
   bool _isShowSignup = false;
   int a =0;
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   late AnimationController _animationController ;
   late Animation<double> _animationTextRotate;
   void setAnimation() {
@@ -82,7 +85,7 @@ class _AuthenticationPageState extends State<AuthenticationPage> with SingleTick
                       },
                     child: Container(
                       color: Color(ColorConstants.light),
-                      child: LoginForm(screenHeight: _size.height,screenWidth: _size.width,),
+                      child: LoginForm(screenHeight: _size.height,screenWidth: _size.width,usernameController: usernameController,passwordController: passwordController,),
                     ),
                   ),
                 )
@@ -119,7 +122,7 @@ class _AuthenticationPageState extends State<AuthenticationPage> with SingleTick
                       },
                     child: Container(
                       color: Color(ColorConstants.primary),
-                      child: SignupForm(screenHeight: _size.height,screenWidth: _size.width,),
+                      child: SignupForm(screenHeight: _size.height,screenWidth: _size.width,usernameController: usernameController,passwordController: passwordController,emailController: emailController,),
                     ),
                   ),
                 )

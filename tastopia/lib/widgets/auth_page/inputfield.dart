@@ -9,6 +9,7 @@ Container InputFieldWidget(
   int InputColor,
   int InpLength,
   bool isPass,
+  TextEditingController textcontroller,
 )
 {
 return Container(
@@ -20,6 +21,7 @@ return Container(
               height: screenHeight*0.077,
               width: screenWidth*0.65,
               child: TextFormField(
+                controller: textcontroller,
                 obscureText: isPass,
                 maxLength: InpLength,
                 textAlignVertical: TextAlignVertical.center,

@@ -12,7 +12,7 @@ class SwipeableWidget extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: 380,
+      height: 320,
       width: screenWidth,
       child : Column(
         
@@ -21,7 +21,7 @@ class SwipeableWidget extends StatelessWidget {
           CarouselSlider.builder( 
             itemCount: dailyMeals.length, 
             itemBuilder: (BuildContext context, int itemIndex, int Page) => Container( 
-              margin: EdgeInsets.all(6.0),
+              margin: EdgeInsets.all(4.0),
                 width: 250,
                 decoration: BoxDecoration(
                   boxShadow: [

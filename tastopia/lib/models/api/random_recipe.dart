@@ -9,6 +9,6 @@ Future<SingleRecipe> RandomMeal (url) async {
     // print(response.body);
     return SingleRecipe.fromJson(response.body);
   } else {
-    throw Exception('Failed to load album');
+    throw Exception('Failed to load ');
   }
 }

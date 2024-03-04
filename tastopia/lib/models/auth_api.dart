@@ -18,11 +18,23 @@ Future<void> SignupRequest(TextEditingController usernameController, TextEditing
       "email": "${emailController.text}",
     }));
   print(response.body);
-
+  LoginRequest(usernameController, passwordController);
 }
 
 
 
-void LoginRequest() async {
-  var loginurl = Uri.parse("http://tastopia.pythonanywhere.com/api/token");
+void LoginRequest(TextEditingController usernameController, TextEditingController passwordController) async {
+  var loginurl = Uri.parse("http://tastopia.pythonanywhere.com/api/token/");
+  print(jsonEncode({
+    "username": "${usernameController.text}",
+    "password": "${passwordController.text}",
+  }));
+  var response = await http.post(loginurl,
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({
+        "username": "${usernameController.text}",
+        "password": "${passwordController.text}"
+      }));
+  print(response.statusCode);
+  print(response.body);
 }

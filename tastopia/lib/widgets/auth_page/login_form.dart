@@ -45,7 +45,7 @@ class LoginForm extends StatelessWidget {
               0xFFffffff,
               17,
               () {LoginRequest(usernameController, passwordController);
-                // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
+                 Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
               }
                   ),
             SizedBox(height: screenHeight*0.065,),

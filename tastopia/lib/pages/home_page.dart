@@ -109,7 +109,8 @@ class _HomePageState extends State<HomePage> {
                   child: Daily.length==0? Text("Empty"): SwipeableWidget(dailyMeals: Daily)    
                 ),
                 Container(
-                  width:screenWidth*0.85,
+                  margin: EdgeInsets.only(left: 10.0),
+                  width:screenWidth*0.99,
                   child: CategoriesWidget()
                   ),
                 ]

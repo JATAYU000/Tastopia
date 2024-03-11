@@ -16,24 +16,19 @@ class _CategoriesState extends State<CategoriesWidget> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Column(
+      
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text("Categories",style: TextStyle(
+        Container(
+          
+          margin: EdgeInsets.only(right: screenWidth*0.65),
+          child:  Text("Categories",style: TextStyle(
+            
           color: Color(ColorConstants.dark),
           fontFamily: GoogleFonts.sora().fontFamily,
           fontSize: screenHeight*0.02,
           fontWeight: FontWeight.bold
-        ),),
-            GestureDetector(child:Text("see all",style: TextStyle(
-          color: Color(ColorConstants.primary),
-          fontFamily: GoogleFonts.sora().fontFamily,
-          fontSize: screenHeight*0.02,
-          fontWeight: FontWeight.bold
-        ),))
-            ],
-        ),
+        
+        ),)),
         SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(

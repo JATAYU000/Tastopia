@@ -47,7 +47,7 @@ List<Category> CatData = [
   Category(strCategory: "Vegetarian", strCategoryThumb: "https://www.themealdb.com/images/category/vegetarian.png"),
   Category(strCategory: "Breakfast", strCategoryThumb: "https://www.themealdb.com/images/category/breakfast.png"),
   Category(strCategory: "Goat", strCategoryThumb: "https://www.themealdb.com/images/category/goat.png"),
-  Category(strCategory: "", strCategoryThumb: ""),
+  // Category(strCategory: "", strCategoryThumb: ""),
 
 ];
 

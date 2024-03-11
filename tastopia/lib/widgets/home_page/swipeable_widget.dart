@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper_view/flutter_swiper_view.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:tastopia/constants/colors.dart';
+import 'package:tastopia/main.dart';
 import 'package:tastopia/models/single_recipe.dart';
 
 class SwipeableWidget extends StatelessWidget {
@@ -39,48 +41,70 @@ class SwipeableWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   
                 ),
-                child: Text(dailyMeals[itemIndex].meals[0]["strMeal"] ?? 'Null'),
+                // child: Text(dailyMeals[itemIndex].meals[0]["strMeal"] ?? 'Null'),
+                child: Container(
+                  margin: EdgeInsets.only(left: 10,right: 10,top: 170, bottom: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.black54,
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 5.0,left: 10,right: 10),
+                    child: Column(
+                      children: [
+                        Text(dailyMeals[itemIndex].meals[0]["strMeal"] ?? 'Null' ,textAlign: TextAlign.start,style: GoogleFonts.sora(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),),
+                        Text("Russian, Dessert",textAlign: TextAlign.end, style: GoogleFonts.sora(fontSize: 14,color: Colors.white),),
+                        Expanded(
+                          child: Divider(
+                            endIndent: 15,
+                            indent: 15,
+                            color: Colors.white,
+                            thickness: 1,
+                          ),
+                        ),
+                        // Divider(
+                          
+                        //     endIndent: 15,
+                        //     indent: 15,
+                        //     color: Colors.white,
+                        //     thickness: 1,
+                        //   ),
+                        Row(
+                          children: [
+                            Container(
+                              // margin: EdgeInsets.only(left: 15.0,right: 6.0,bottom: 8),
+                              child: Icon(
+                                Icons.abc,
+                                size: 10,
+                                color: Color(0xffFFBF00),
+                              ),
+                            ),
+                            Container(
+                              // margin: EdgeInsets.only(bottom: 8),
+                              child: Text("4.9(21)",style: GoogleFonts.sora(fontSize: 14,color: Colors.white,fontWeight: FontWeight.bold),)),
+                            Expanded(child:Container()),
+                            Container(
+                              // margin: EdgeInsets.only(left: 0.0,bottom: 8,right: 15.0),
+                              child: Text("Easy",style: GoogleFonts.sora(fontSize: 14,color: Colors.white),))
+                          ],
+                        )
+                    
+                      ]
+                    ),
+                  )
+                  )
               ),
             options: CarouselOptions(
               height:300,
           viewportFraction: 0.72,
           enableInfiniteScroll: true,
-          enlargeCenterPage: true,
+          // enlargeCenterPage: true,
+          // aspectRatio: 1.2
         ), 
           ),
           
         ],)
     );
-    
-
-
-
-  //   return Swiper(
-  //             itemWidth: 280,
-  //             itemHeight: 325,
-  //             loop: true,
-  //             duration: 10000,
-  //             scrollDirection: Axis.horizontal
-  //             ,
-  //             axisDirection: AxisDirection.left,
-  //             itemBuilder: (context, index) {
-  //               return Container(
-  //                 decoration: BoxDecoration(
-  //                   color: Colors.black12,
-  //                   image: DecorationImage(image: NetworkImage(dailyMeals[index].meals[0]["strMealThumb"] ?? 'Null')),
-  //                   // image: DecorationImage(image: AssetImage("assets/images/ggarlic.jpg")),
-  //                   borderRadius: BorderRadius.circular(20),
-                    
-  //                 ),
-  //                 child: Text(dailyMeals[index].meals[0]["strMeal"] ?? 'Null'),
-  //               );
-  //             },
-  //             itemCount: dailyMeals.length,
-  //             layout: SwiperLayout.TINDER,
-
-  // // viewportFraction: 0.8, 
-  // // curve: Curves.easeInOut, 
-  //           );
   }
 }
 
